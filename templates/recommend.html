@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bev-Book_Recom - Discover Your Next Great Read</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+        min-height: 100vh;
+        color: #ffffff;
+        overflow-x: hidden;
+    }
+
+    /* Animated background particles */
+    .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .particle {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: rgba(79, 172, 254, 0.4);
+        border-radius: 50%;
+        animation: float 6s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+        50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+    }
+
+    /* Navigation */
+    .navbar {
+        background: rgba(13, 13, 13, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(79, 172, 254, 0.2);
+        padding: 1rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, #4facfe, #00f2fe);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .nav-links a:hover {
+        background: rgba(79, 172, 254, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .nav-links a.active {
+        background: linear-gradient(45deg, #4facfe, #00f2fe);
+        color: #000;
+    }
+
+    /* Main Content */
+    .main-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-section {
+        text-align: center;
+        margin: 3rem 0 4rem 0;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #4facfe, #00f2fe, #4facfe);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        background-size: 200% 200%;
+        animation: gradient-shift 3s ease infinite;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+        line-height: 1.6;
+    }
+
+    @keyframes gradient-shift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    /* Search Form */
+    .search-container {
+        max-width: 600px;
+        margin: 0 auto 3rem auto;
+        position: relative;
+    }
+
+    .search-form {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .search-input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(79, 172, 254, 0.3);
+        border-radius: 16px;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        color: #ffffff;
+        transition: all 0.3s ease;
+        outline: none;
+    }
+
+    .search-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .search-input:focus {
+        border-color: #4facfe;
+        box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .search-button {
+        background: linear-gradient(45deg, #4facfe, #00f2fe);
+        border: none;
+        border-radius: 16px;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #000;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        min-width: 140px;
+        justify-content: center;
+    }
+
+    .search-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+    }
+
+    .search-button:active {
+        transform: translateY(0);
+    }
+
+    /* Loading State */
+    .loading-spinner {
+        display: none;
+        animation: spin 1s linear infinite;
+    }
+
+    .search-button.loading .search-text {
+        display: none;
+    }
+
+    .search-button.loading .loading-spinner {
+        display: block;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Results Section */
+    .results-section {
+        margin-top: 3rem;
+    }
+
+    .results-title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease forwards;
+    }
+
+    /* Books Grid */
+    .books-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .book-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(79, 172, 254, 0.2);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        transform: translateY(20px);
+        opacity: 0;
+        animation: slideInUp 0.6s ease forwards;
+    }
+
+    .book-card:nth-child(even) {
+        animation-delay: 0.1s;
+    }
+
+    .book-card:nth-child(3n) {
+        animation-delay: 0.2s;
+    }
+
+    .book-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(79, 172, 254, 0.3);
+        border-color: rgba(79, 172, 254, 0.5);
+    }
+
+    .book-image-container {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .book-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+
+    .book-card:hover .book-image {
+        transform: scale(1.1);
+    }
+
+    .book-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .book-card:hover .book-overlay {
+        opacity: 1;
+    }
+
+    .book-content {
+        padding: 1.5rem;
+    }
+
+    .book-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #ffffff;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .book-author {
+        color: rgba(79, 172, 254, 0.9);
+        font-weight: 500;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    }
+
+    /* Empty State */
+    .empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        opacity: 0;
+        animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .empty-state-icon {
+        font-size: 4rem;
+        color: rgba(79, 172, 254, 0.5);
+        margin-bottom: 1rem;
+    }
+
+    .empty-state-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .empty-state-text {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 1rem;
+    }
+
+    /* Suggestions */
+    .suggestions {
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .suggestions-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .suggestion-tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .suggestion-tag {
+        background: rgba(79, 172, 254, 0.1);
+        border: 1px solid rgba(79, 172, 254, 0.3);
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        color: rgba(79, 172, 254, 0.9);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .suggestion-tag:hover {
+        background: rgba(79, 172, 254, 0.2);
+        border-color: rgba(79, 172, 254, 0.5);
+        transform: translateY(-2px);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-container {
+            padding: 0 1rem;
+        }
+        
+        .nav-links {
+            gap: 1rem;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .search-form {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .search-button {
+            width: 100%;
+        }
+        
+        .books-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .main-container {
+            padding: 1rem;
+        }
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #4facfe, #00f2fe);
+        border-radius: 4px;
+    }
+</style>
+<body>
+    <!-- Animated background particles -->
+    <div class="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="navbar-brand">
+                <i class="fas fa-book-open"></i>
+                Bev-Book_Recom
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/recommend" class="active">Discover</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="hero-title">Discover Books</h1>
+            <p class="hero-subtitle">Enter the name of a book you love, and we'll recommend similar titles you might enjoy</p>
+            
+            <!-- Search Form -->
+            <div class="search-container">
+                <form action="/recommend_books" method="post" class="search-form" id="searchForm">
+                    <input 
+                        name="user_input" 
+                        type="text" 
+                        class="search-input"
+                        placeholder="Enter a book title (e.g., 'Harry Potter', '1984', 'The Great Gatsby')"
+                        required
+                        autocomplete="off"
+                    >
+                    <button type="submit" class="search-button" id="searchButton">
+                        <span class="search-text">
+                            <i class="fas fa-search"></i>
+                            Discover
+                        </span>
+                        <i class="fas fa-spinner loading-spinner"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Popular Suggestions -->
+            <div class="suggestions">
+                <p class="suggestions-title">Popular searches:</p>
+                <div class="suggestion-tags">
+                    <span class="suggestion-tag" onclick="fillSearch('Harry Potter')">Harry Potter</span>
+                    <span class="suggestion-tag" onclick="fillSearch('1984')">1984</span>
+                    <span class="suggestion-tag" onclick="fillSearch('The Great Gatsby')">The Great Gatsby</span>
+                    <span class="suggestion-tag" onclick="fillSearch('To Kill a Mockingbird')">To Kill a Mockingbird</span>
+                    <span class="suggestion-tag" onclick="fillSearch('Pride and Prejudice')">Pride and Prejudice</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        {% if data %}
+        <div class="results-section">
+            <h2 class="results-title">
+                <i class="fas fa-magic"></i>
+                Books You Might Love
+            </h2>
+            <div class="books-grid">
+                {% for i in data %}
+                <div class="book-card">
+                    <div class="book-image-container">
+                        <img src="{{ i[2] }}" alt="{{ i[0] }}" class="book-image" loading="lazy">
+                        <div class="book-overlay"></div>
+                    </div>
+                    <div class="book-content">
+                        <h3 class="book-title">{{ i[0] }}</h3>
+                        <p class="book-author">{{ i[1] }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <div class="empty-state-icon">
+                <i class="fas fa-book-reader"></i>
+            </div>
+            <h3 class="empty-state-title">Ready to discover your next favorite book?</h3>
+            <p class="empty-state-text">Enter a book title above to get personalized recommendations based on your taste</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (3 + Math.random() * 6) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Fill search input with suggestion
+        function fillSearch(bookTitle) {
+            const searchInput = document.querySelector('.search-input');
+            searchInput.value = bookTitle;
+            searchInput.focus();
+            
+            // Add a subtle animation
+            searchInput.style.transform = 'scale(1.02)';
+            setTimeout(() => {
+                searchInput.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Handle form submission
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            const button = document.getElementById('searchButton');
+            const input = document.querySelector('.search-input');
+            
+            if (input.value.trim() === '') {
+                e.preventDefault();
+                input.focus();
+                input.style.borderColor = '#ff6b6b';
+                setTimeout(() => {
+                    input.style.borderColor = 'rgba(79, 172, 254, 0.3)';
+                }, 2000);
+                return;
+            }
+            
+            // Add loading state
+            button.classList.add('loading');
+            button.disabled = true;
+        });
+
+        // Smooth scrolling navbar effect
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Auto-complete functionality
+        const searchInput = document.querySelector('.search-input');
+        const popularBooks = [
+            'Harry Potter and the Philosopher\'s Stone',
+            '1984',
+            'The Great Gatsby',
+            'To Kill a Mockingbird',
+            'Pride and Prejudice',
+            'The Catcher in the Rye',
+            'Lord of the Flies',
+            'The Da Vinci Code',
+            'The Alchemist',
+            'One Hundred Years of Solitude'
+        ];
+
+        searchInput.addEventListener('input', function(e) {
+            const value = e.target.value.toLowerCase();
+            if (value.length > 2) {
+                const matches = popularBooks.filter(book => 
+                    book.toLowerCase().includes(value)
+                );
+                // You could implement a dropdown here if desired
+            }
+        });
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Add staggered animation to book cards if they exist
+            const bookCards = document.querySelectorAll('.book-card');
+            bookCards.forEach((card, index) => {
+                card.style.animationDelay = (index * 0.1) + 's';
+            });
+
+            // Focus on search input
+            const searchInput = document.querySelector('.search-input');
+            if (searchInput && !searchInput.value) {
+                setTimeout(() => searchInput.focus(), 500);
+            }
+        });
+
+        // Add loading states for images
+        document.querySelectorAll('.book-image').forEach(img => {
+            img.addEventListener('load', () => {
+                img.style.opacity = '1';
+            });
+            
+            img.addEventListener('error', () => {
+                img.src = 'https://via.placeholder.com/300x400/1a1a2e/4facfe?text=No+Image';
+            });
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === '/' && e.target.tagName !== 'INPUT') {
+                e.preventDefault();
+                document.querySelector('.search-input').focus();
+            }
+        });
+    </script>
+</body>
+</html>
