@@ -173,12 +173,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
-**Shivam Dali** · shivamdali@gmail.com
+**Shivam Dali** · bevinsamraj.work@gmail.com
 
-**GitHub** · [https://github.com/svdexe](https://github.com/svdexe)  
-**LinkedIn** · [https://www.linkedin.com/in/shivam-dali-86b0a1201/](https://www.linkedin.com/in/shivam-dali-86b0a1201/)
+**GitHub** · [https://github.com/bevinsamraj](https://github.com/bevinsamraj)  
+**LinkedIn** · [https://www.linkedin.com/in/bevin-samraj-s-52991b249](https://www.linkedin.com/in/bevin-samraj-s-52991b249)
 
-Project Link: [https://github.com/yourusername/Book-Recommendation-System](https://github.com/svdexe/Book_Recommendation_System)
+Project Link: [https://github.com/bevinsamraj/](https://github.com/bevinsamraj/)
 
 ---
 
