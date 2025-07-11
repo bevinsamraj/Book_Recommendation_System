@@ -13,7 +13,7 @@
 <br>
 
 <div align="center">
-  <img src="https://github.com/bevinsamraj/Book_Recommendation_System/blog/main/Web_Book_Home.png" alt="Bev-Book_Recom Home Interface - Top 50 Books" width="700"/>
+  <img src="https://github.com/bevinsamraj/Book_Recommendation_System/blob/main/Web_Book_Home.png" alt="Bev-Book_Recom Home Interface - Top 50 Books" width="700"/>
   <p><em>Discover your next favorite book with AI-powered recommendations and curated top picks</em></p>
 </div>
 
@@ -23,7 +23,7 @@
 **Recommendation Engine** · Enter a book title to get personalized suggestions
 
 <div align="center">
-  <img src="https://github.com/bevinsamraj/Book_Recommendation_System/blog/main/Web_Book_Recommend.png" alt="Bev-Book_Recom Recommendation Interface" width="700"/>
+  <img src="https://github.com/bevinsamraj/Book_Recommendation_System/blob/main/Web_Book_Recommend.png" alt="Bev-Book_Recom Recommendation Interface" width="700"/>
   <p><em>Smart recommendation engine with modern search interface</em></p>
 </div>
 
