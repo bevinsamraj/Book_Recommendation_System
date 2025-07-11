@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # 📚 Bev-Book_Recom - Smart Book Recommendation System
-=======
-# 📚 Bev-Book - Smart Book Recommendation System
->>>>>>> 9e313237efd2f8a4578e914487f0e5979cea9811
 
 <div align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
@@ -17,11 +13,7 @@
 <br>
 
 <div align="center">
-<<<<<<< HEAD
   <img src="https://github.com/bevinsamraj/Book_Recommendation_System//Web_Book_Home.png" alt="Bev-Book_Recom Home Interface - Top 50 Books" width="700"/>
-=======
-  <img src="https://github.com/svdexe/Book_Recommendation_System/blob/main/Web_Book_Home.png" alt="Bev-Book Home Interface - Top 50 Books" width="700"/>
->>>>>>> 9e313237efd2f8a4578e914487f0e5979cea9811
   <p><em>Discover your next favorite book with AI-powered recommendations and curated top picks</em></p>
 </div>
 
@@ -31,11 +23,7 @@
 **Recommendation Engine** · Enter a book title to get personalized suggestions
 
 <div align="center">
-<<<<<<< HEAD
   <img src="https://github.com/bevinsamraj/Book_Recommendation_System//Web_Book_Recommend.png" alt="Bev-Book_Recom Recommendation Interface" width="700"/>
-=======
-  <img src="https://github.com/svdexe/Book_Recommendation_System/blob/main/Web_Book_Recommend.png" alt="Bev-Book Recommendation Interface" width="700"/>
->>>>>>> 9e313237efd2f8a4578e914487f0e5979cea9811
   <p><em>Smart recommendation engine with modern search interface</em></p>
 </div>
 
@@ -70,11 +58,7 @@ Python 3.7+ · pip package manager
 **Installation**
 ```bash
 # Clone the repository
-<<<<<<< HEAD
 git clone https://github.com/bevinsamraj/Book-Recommendation-System.git
-=======
-git clone https://github.com/yourusername/Book-Recommendation-System.git
->>>>>>> 9e313237efd2f8a4578e914487f0e5979cea9811
 cd Book-Recommendation-System
 
 # Install dependencies
@@ -148,11 +132,7 @@ The system uses **Two Recommendation Approaches**
 4. **Try Suggestions** · Use popular search tags for quick discovery
 
 <div align="center">
-<<<<<<< HEAD
   <img src="recommend_screenshot.png" alt="Bev-Book_Recom Recommendation Interface" width="700"/>
-=======
-  <img src="recommend_screenshot.png" alt="Bev-Book Recommendation Interface" width="700"/>
->>>>>>> 9e313237efd2f8a4578e914487f0e5979cea9811
   <p><em>Smart recommendation engine with modern search interface</em></p>
 </div>
 
@@ -193,20 +173,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
-<<<<<<< HEAD
 **Bevin Samraj** · bevinsamraj.work@gmail.com
-=======
-**Shivam Dali** · bevinsamraj.work@gmail.com
->>>>>>> 9e313237efd2f8a4578e914487f0e5979cea9811
 
 **GitHub** · [https://github.com/bevinsamraj](https://github.com/bevinsamraj)  
 **LinkedIn** · [https://www.linkedin.com/in/bevin-samraj-s-52991b249](https://www.linkedin.com/in/bevin-samraj-s-52991b249)
 
 Project Link: [https://github.com/bevinsamraj/](https://github.com/bevinsamraj/)
-<<<<<<< HEAD
-=======
-
->>>>>>> 9e313237efd2f8a4578e914487f0e5979cea9811
 ---
 
 <div align="center">
